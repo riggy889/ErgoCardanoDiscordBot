@@ -46,7 +46,7 @@ async def returnAddress(ctx):
     await ctx.respond('Your ergo address is - ' + messageString)
 
 
-# Ergo Bot Command With Options
+# Ergo Bot Command - Get AddressByTokenID
 @bot.command()
 @lightbulb.option('tokenid', 'Enter a token id here:')
 @lightbulb.command('returnaddressbytokenid', 'Returns address where the token id lives...')
