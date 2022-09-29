@@ -45,4 +45,19 @@ async def getcurrentergoprice(ctx):
     await ctx.respond('Current Ergo Price - $' + str(ergoPrice))
 
 
+# Ergo Bot Command - Get Tokens for Address
+@bot.command()
+@lightbulb.option('address', 'Enter your address here:')
+@lightbulb.command('returntokensbyaddress', 'Returns tokens from your address balance...')
+@lightbulb.implements(lightbulb.SlashCommand)
+async def returntokensbyaddress(ctx):
+    dataValues = ergo.GetTokensFromAddress(ctx.options.address)
+    ergoBalance = str(dataValues[0] / 1000000000)
+    tokenList = dataValues[1]
+    await ctx.respond('Ergo Balance in Address - '+ergoBalance+' ERG')
+    await ctx.respond('Tokens in Wallet: ')
+    for token in tokenList:
+        await ctx.respond('- '+token)
+
+
 bot.run()

@@ -1,3 +1,5 @@
+from pickle import FALSE
+from xml.dom.minidom import TypeInfo
 import requests
 import json
 import sys
@@ -43,9 +45,40 @@ def GetCurrentPriceForErgo():
             print('Error! Waiting %s secs and re-trying...' % wait)
             sys.stdout.flush()
             time.sleep(wait)
+            if retries == 2:
+                break
             retries += 1
     return price
 
 
+# Gets Tokens for the Address and Gives Breakdown
 def GetTokensFromAddress(address):
-    url = ""
+    url = "https://api.ergoplatform.com/api/v1/addresses/" + \
+        str(address)+"/balance/confirmed"
+    retries = 1
+    success = False
+    while not success:
+        try:
+            url_response = requests.get(url, timeout=10)
+            data = json.loads(url_response.text)
+        except Exception as e:
+            wait = retries * 10
+            print('Error! Waiting %s secs and re-trying...' % wait)
+            sys.stdout.flush()
+            time.sleep(wait)
+            if retries == 2:
+                break
+            retries += 1
+
+    nanoErgs = data['nanoErgs']
+    tokenList = []
+    for token in data['tokens']:
+        tokenList.append(token['name'])
+    return nanoErgs, tokenList
+
+
+# data = GetTokensFromAddress(
+#     "9h4XrgFbrHcZipDA6ziLtxAWxLHBS4KYYc3LBWM7JkFxHXj8geg")
+# for token in data[1]:
+#     print(token)
+# print(type(data[1]))
