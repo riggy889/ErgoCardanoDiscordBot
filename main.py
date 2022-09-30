@@ -1,6 +1,4 @@
-import messagesBot
-import commandsBot
+import ergoCommandsBot
 
 if __name__ == '__main__':
-    # messagesBot.run_discord_bot()
-    commandsBot.run_discord_bot()
+    ergoCommandsBot.run_ergo_discord_bot()
