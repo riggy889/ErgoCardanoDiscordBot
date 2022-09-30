@@ -1,4 +1,5 @@
 # PythonDiscordBot
-A discord bot for interreacting with Discord Users, built in Python.
+A Command-Based Discord Bot with Ergo related functions.
 
-The bot will track events within a Discord channel.
+Built using Hikari Lightbulb - https://github.com/hikari-py/hikari
+Ergo Explorer API - https://api.ergoplatform.com/api/v1/docs/
