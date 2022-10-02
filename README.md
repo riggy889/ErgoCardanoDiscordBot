@@ -10,5 +10,6 @@
 
 ## API Resources
 <ul>
+<li>Discord Dev API Documentation - https://discordpy.readthedocs.io/en/stable/api.html</li>
 <li>Ergo Explorer API - https://api.ergoplatform.com/api/v1/docs/</li>
 </ul>
