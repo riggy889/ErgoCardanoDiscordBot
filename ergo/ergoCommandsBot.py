@@ -1,6 +1,6 @@
 import hikari
 import lightbulb
-import ergoApiFunctions
+import ergo.ergoApiFunctions as ergoApiFunctions
 import os
 from dotenv import load_dotenv
 

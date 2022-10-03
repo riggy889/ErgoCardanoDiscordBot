@@ -1,6 +1,5 @@
 import requests
 import json
-from retrying import retry
 
 import logging
 logging.basicConfig(filename='example.log', format='%(asctime)s %(message)s',
