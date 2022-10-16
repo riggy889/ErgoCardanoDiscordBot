@@ -78,3 +78,22 @@ def GetTokensFromAddress(address):
     for token in tokens:
         tokenString += f"{str(token['name'])} (Qty - {str(token['amount'])}), \n"
     return tokenString
+
+
+def GetTokenDetails(tokenID):
+    # /api/v1/assets/search/byTokenId
+    url = "https://api.ergoplatform.com/a/api/v1/assets/search/byTokenId/"+tokenID
+    try:
+        r = requests.get(url, timeout=10)
+        r.raise_for_status()
+    except requests.exceptions.RequestException as err:
+        print('Requests Exception Found')
+        logging.warning(err)
+        return errorResponseString
+
+    data = json.loads(r.text)
+    return data
+
+Data = GetTokenDetails('cf2b42a59192ede3998cdcfad7d163d10fa707ee5b5a923c83b20c1b0bd91e0d')
+
+print(Data)
