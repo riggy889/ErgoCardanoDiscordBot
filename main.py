@@ -1,5 +1,6 @@
-import ergo.ergoCommandsBot as ergoCommandsBot
-import cardano.cardanoCommandsBot as cardanoCommandsBot
+import mainBot
+from keep_alive import keep_alive
 
 if __name__ == '__main__':
-    ergoCommandsBot.run_ergo_discord_bot()
+    mainBot.run_bot()
+    keep_alive()

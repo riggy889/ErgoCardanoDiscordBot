@@ -93,7 +93,3 @@ def GetTokenDetails(tokenID):
 
     data = json.loads(r.text)
     return data
-
-Data = GetTokenDetails('cf2b42a59192ede3998cdcfad7d163d10fa707ee5b5a923c83b20c1b0bd91e0d')
-
-print(Data)
