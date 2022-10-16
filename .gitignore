@@ -129,6 +129,5 @@ dmypy.json
 .pyre/
 
 # Personal
-cardano/
-rabbit.py
-adventurers.json
+ergoDocs/
+example.log
